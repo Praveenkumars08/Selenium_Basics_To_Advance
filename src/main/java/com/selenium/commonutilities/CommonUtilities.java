@@ -1,5 +1,7 @@
 package com.selenium.commonutilities;
 
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -36,7 +38,7 @@ public class CommonUtilities {
 	}
 
 	public void launchUrl(String url) {
-		if(url!=null) {
+		if(url!=null && url.length()!=0) {
 			driver.get(url);
 		}
 		else {
@@ -75,6 +77,15 @@ public class CommonUtilities {
 	public void quitBrowser() {
 		if(driver!=null) {
 			driver.quit();
+		}
+	}
+	
+	public void launchUrl(URL url) throws Exception {
+		if(url!=null) {
+			driver.navigate().to(url);
+		}
+		else {
+			throw new Exception("Please pass the valid URL");
 		}
 	}
 
