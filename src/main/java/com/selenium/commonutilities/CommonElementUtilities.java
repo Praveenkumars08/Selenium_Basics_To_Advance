@@ -28,5 +28,10 @@ public class CommonElementUtilities {
 		String txt = fElement(locator).getText();
 		return txt;
 	}
+	
+	public String myGetAttribute(By locator, String attrname) {
+		String atrValue = fElement(locator).getAttribute(attrname);
+		return atrValue;
+	}
 
 }
