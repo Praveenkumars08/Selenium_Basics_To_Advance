@@ -20,4 +20,8 @@ public class CommonElementUtilities {
 		fElement(locator).sendKeys(value);
 	}
 
+	public void myClick(By locator) {
+		fElement(locator).click();
+	}
+
 }
