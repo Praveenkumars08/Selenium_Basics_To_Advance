@@ -23,15 +23,23 @@ public class CommonElementUtilities {
 	public void myClick(By locator) {
 		fElement(locator).click();
 	}
-	
+
 	public String myGetText(By locator) {
 		String txt = fElement(locator).getText();
 		return txt;
 	}
-	
+
 	public String myGetAttribute(By locator, String attrname) {
 		String atrValue = fElement(locator).getAttribute(attrname);
 		return atrValue;
+	}
+
+	public boolean checkEleDisplayed(By locator) {
+		return fElement(locator).isDisplayed();
+	}
+
+	public boolean checkEleEnabled(By locator) {
+		return fElement(locator).isEnabled();
 	}
 
 }
