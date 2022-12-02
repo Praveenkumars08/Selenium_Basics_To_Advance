@@ -15,6 +15,7 @@ public class Basics09 {
 
 		/**
 		 * Validating error message with the help of getText generic function
+		 * NOTE: Text can be captured from warning messages or any kind of error messages or from anywhere.
 		 */
 
 		WebDriverManager.chromedriver().setup();
