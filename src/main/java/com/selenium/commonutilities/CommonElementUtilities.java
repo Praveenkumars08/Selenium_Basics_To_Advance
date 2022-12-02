@@ -23,5 +23,10 @@ public class CommonElementUtilities {
 	public void myClick(By locator) {
 		fElement(locator).click();
 	}
+	
+	public String myGetText(By locator) {
+		String txt = fElement(locator).getText();
+		return txt;
+	}
 
 }
