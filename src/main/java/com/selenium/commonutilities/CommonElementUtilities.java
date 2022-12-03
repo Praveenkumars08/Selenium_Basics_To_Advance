@@ -44,7 +44,7 @@ public class CommonElementUtilities {
 	public boolean checkEleEnabled(By locator) {
 		return fElement(locator).isEnabled();
 	}
-	
+
 	public List<WebElement> fElements(By locator) {
 		return driver.findElements(locator);
 	}
@@ -59,7 +59,7 @@ public class CommonElementUtilities {
 		for(WebElement e : eleList) {
 			String txt = e.getText();
 			if(txt.length()!=0) {
-			ar.add(txt);
+				ar.add(txt);
 			}
 		}
 		return ar;
