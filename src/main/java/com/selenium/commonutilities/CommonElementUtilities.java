@@ -6,10 +6,12 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class CommonElementUtilities {
 
 	private WebDriver driver;
+	private Select sel;
 
 	public CommonElementUtilities(WebDriver driver) {
 		this.driver=driver;
@@ -61,6 +63,47 @@ public class CommonElementUtilities {
 			if(txt.length()!=0) {
 				ar.add(txt);
 			}
+		}
+		return ar;
+	}
+
+	/**
+	 * Utilities for Select Class
+	 * @param locator
+	 * @param value
+	 */
+
+	public void mySelectDropDownByIndex(By locator, int value) {
+		sel = new Select(fElement(locator));
+		sel.selectByIndex(value);
+	}
+
+	public void mySelectDropDownByVisibleText(By locator, String text) {
+		sel = new Select(fElement(locator));
+		sel.selectByVisibleText(text);
+	}
+
+	public void mySelectDropDownByValue(By locator, String value) {
+		sel = new Select(fElement(locator));
+		sel.selectByValue(value);
+	}
+
+	public int fDropDownCount(By locator) {
+		return getDropDownOptions(locator).size();
+	}
+
+	public List<WebElement> getDropDownOptions(By locator) {
+		sel = new Select(fElement(locator));
+		return sel.getOptions();
+	}
+
+	public ArrayList<String> getAllDropDownValues(By locator) {
+		sel = new Select(fElement(locator));
+		List<WebElement> eleList =  sel.getOptions();
+		ArrayList<String> ar = new ArrayList<>();
+		for(WebElement e : eleList) {
+			String txt = e.getText();
+			ar.add(txt);
 		}
 		return ar;
 	}
