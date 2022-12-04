@@ -107,7 +107,7 @@ public class CommonElementUtilities {
 		}
 		return ar;
 	}
-	
+
 	public void handleDropDownWithoutSelect(By locator, String val) {
 		List<WebElement> eleList = fElements(locator);
 		for(WebElement e : eleList) {
