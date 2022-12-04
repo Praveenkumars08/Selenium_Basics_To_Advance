@@ -107,5 +107,16 @@ public class CommonElementUtilities {
 		}
 		return ar;
 	}
+	
+	public void handleDropDownWithoutSelect(By locator, String val) {
+		List<WebElement> eleList = fElements(locator);
+		for(WebElement e : eleList) {
+			String txt = e.getText();
+			if(txt.equals(val)) {
+				e.click();
+				break;
+			}
+		}
+	}
 
 }
