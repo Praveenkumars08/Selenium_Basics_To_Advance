@@ -1,0 +1,41 @@
+XPath Cheat Sheet
+
+1. First Way 
+syntax : //htmltagName[@attributeName = 'value']
+
+2. Second way
+syntax : //htmltagName[@attributeName1 = 'value' and @attributeName2 = 'value' and ..]
+NOTE : We can also use or too.
+
+3. Using text method, here text() is a method.
+syntax : //htmltagName[text()='value']
+NOTE : If we are using text() method we need to pass the exact value of the text.
+
+4. Text() with attribute 
+//htmltagName[@attributeName='value' and text()='Value']
+
+5. Two attributes with text
+//htmltagName[@attributeName='value' and @attributeName='value' and text()='value']
+
+6. Contains() function with attribute -->Here we can pass the partial value too.
+//htmltagName[contains(@attributeName, 'value')]
+
+7. contains() with text()
+//htmltagName [contains(text(), 'value')]
+
+8. contains() with text() and contains() with attribute
+//htmltagName[contains(@attributeName, 'value') and contains(text(), 'value')]
+
+9. contains() with text and attribute
+//htmltagName[contains(text(), 'value') and @attribute='value']
+
+10. contains() with attributeName1 and attributeName2
+//htmltagName[contains(@attributeName1, 'value') and @attributeName2='value']
+
+11. starts-with()
+//htmltagName[starts-with(@attributeName, 'value')]
+//htmltagName[starts-with(text(), 'value')]
+
+12. Indexing
+(//htmltagName[@attributeName='value'])[position()=1]
+(//htmltagName[@attributeName='value'])[last()]
