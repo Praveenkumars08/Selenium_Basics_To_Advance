@@ -28,6 +28,7 @@ public class Intermediate_05_HandlingWebTableForSpecificUser {
 	}
 	
 	public static List<String> getUserData(String plsPassExactUserName) {
+		driver.findElement(By.xpath("//table[@id='resultTable']//td/input/parent::td/following-sibling::td/a[text()='"+plsPassExactUserName+"']/parent::td/preceding-sibling::td/input")).click();
 		List<WebElement> userList = driver.findElements(By.xpath("//table[@id='resultTable']//td/input/parent::td/following-sibling::td/a[text()='"+plsPassExactUserName+"']/parent::td/following-sibling::td"));
 		ArrayList<String> ar = new ArrayList<>();
 		for(WebElement e : userList) {
