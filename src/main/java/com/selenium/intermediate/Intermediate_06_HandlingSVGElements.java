@@ -25,12 +25,10 @@ public class Intermediate_06_HandlingSVGElements {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.get("https://petdiseasealerts.org/alerts-map/#/");
+		Thread.sleep(3000);
 
-		driver.get("https://petdiseasealerts.org/forecast-map/#/");
-
-		Thread.sleep(5000);
-
-		List<WebElement> stateList = driver.findElements(By.xpath("//*[local-name()='svg' and @id='map-svg']//*[name()='g' and @class='region']"));
+		List<WebElement> stateList = driver.findElements(By.xpath("//*[local-name()='svg' and @id='map-svg']//*[name()='g' and @class='state']"));
 
 		for(WebElement e : stateList) {
 			String txt = e.getAttribute("id");
