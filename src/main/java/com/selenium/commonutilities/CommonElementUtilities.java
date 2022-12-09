@@ -6,15 +6,18 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class CommonElementUtilities {
 
 	private WebDriver driver;
 	private Select sel;
+	private Actions act;
 
 	public CommonElementUtilities(WebDriver driver) {
 		this.driver=driver;
+		act = new Actions(driver);
 	}
 
 	public WebElement fElement(By locator) {
@@ -68,9 +71,7 @@ public class CommonElementUtilities {
 	}
 
 	/**
-	 * Utilities for Select Class
-	 * @param locator
-	 * @param value
+	 * **********Utilities for Select Class*********
 	 */
 
 	public void mySelectDropDownByIndex(By locator, int value) {
@@ -117,6 +118,18 @@ public class CommonElementUtilities {
 				break;
 			}
 		}
+	}
+
+	/**
+	 * ********Utilities for Actions Class***************
+	 */
+
+	public void mySendKeysWithActions(By locator, String value) {
+		act.sendKeys(fElement(locator), value).build().perform();
+	}
+
+	public void mySendKeysWithClick(By locator) {
+		act.click(fElement(locator)).click().build().perform();
 	}
 
 }
