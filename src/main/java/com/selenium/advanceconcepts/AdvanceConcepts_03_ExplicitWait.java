@@ -20,6 +20,9 @@ public class AdvanceConcepts_03_ExplicitWait {
 		 * Explicit wait is applied for a specific element, not for all the elements. 
 		 * It can be used for non web elements like alerts, title, URL.
 		 * NOTE : It is not a global wait.
+		 * presenceOfElementLocated()
+		 * An expectation for checking that an element is present on the DOM of a page. 
+		 * This does not necessarily mean that the element is visible.
 		 */
 
 		WebDriverManager.chromedriver().setup();
