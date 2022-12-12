@@ -1,13 +1,17 @@
 package com.selenium.commonutilities;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommonElementUtilities {
 
@@ -131,5 +135,102 @@ public class CommonElementUtilities {
 	public void mySendKeysWithClick(By locator) {
 		act.click(fElement(locator)).click().build().perform();
 	}
+
+	public void myRightClick(By locator) {
+		act.contextClick(fElement(locator));
+	}
+
+	public void myDoubleClick(By locator) {
+		act.doubleClick(fElement(locator));
+	}
+
+
+	/**
+	 * ****************Utilities for Wait *********************
+	 */
+
+	public WebElement myWaitForPresenceOfElement(By locator, int timeOut) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	}
+
+	public void myWaitForPresenceOfElementWithSendKeys(By locator, int timeOut, String val) {
+		myWaitForPresenceOfElement(locator, timeOut).sendKeys(val);
+	}
+
+	public void myClickUsingWait(By locator, int timeOut) {
+		myWaitForPresenceOfElement(locator, timeOut).click();
+	}
+
+	public WebElement myWaitForVisibleOfElement(By locator, int timeOut) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+
+	public void myWaitForVisibleOfElementSendKeys(By locator, int timeOut, String val) {
+		myWaitForVisibleOfElement(locator, timeOut).sendKeys(val);
+	}
+
+	public void myWaitForVisibleOfElementWithClick(By locator, int timeOut) {
+		myWaitForVisibleOfElement(locator, timeOut).click();
+	}
+
+	/**
+	 * Wait using Alert
+	 */
+
+	public Alert waitForAlert(int timeOut) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		return wait.until(ExpectedConditions.alertIsPresent());
+	}
+
+	public String WaitForAlertGetText(int timeOut) {
+		return waitForAlert(timeOut).getText();
+	}
+
+	/**
+	 * Wait for Title and URL
+	 */
+
+	public  String waitForExactTitle(int timeOut, String plsPassExactTitle) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		if(wait.until(ExpectedConditions.titleIs(plsPassExactTitle))) {
+			return driver.getTitle();
+		}
+		else {
+			return null;
+		}
+	}
+
+	public String waitForPartialTitle(int timeOut, String partialTitleVal) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		if(wait.until(ExpectedConditions.titleContains(partialTitleVal))) {
+			return driver.getTitle();
+		}
+		else {
+			return null;
+		}
+	}
+
+	public String waitForURL(int timeOut, String plsPassExactURL) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		if(wait.until(ExpectedConditions.urlToBe(plsPassExactURL))) {
+			return driver.getCurrentUrl();
+		}
+		else {
+			return null;
+		}
+	}
+
+	public String waitForURLContains(int timeOut, String plsPassPartialVal) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		if(wait.until(ExpectedConditions.urlContains(plsPassPartialVal))) {
+			return driver.getCurrentUrl();
+		}
+		else {
+			return null;
+		}
+	}
+
 
 }
