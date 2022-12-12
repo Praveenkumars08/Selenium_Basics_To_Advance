@@ -11,7 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AdvanceConcepts_05_HandlingNonWebElements {
+public class AdvanceConcepts_05_HandlingNonWebElements_Alert {
+
+	/**
+	 * Handling wait with Alert
+	 */
 
 	static WebDriver driver;
 
