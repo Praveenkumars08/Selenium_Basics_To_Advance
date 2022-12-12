@@ -144,6 +144,10 @@ public class CommonElementUtilities {
 		act.doubleClick(fElement(locator));
 	}
 
+	public void myDragAndDrop(By sLocator, By tLocator) {
+		act.dragAndDrop(fElement(sLocator), fElement(tLocator));
+	}
+
 
 	/**
 	 * ****************Utilities for Wait *********************
