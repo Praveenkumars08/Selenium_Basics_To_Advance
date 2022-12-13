@@ -236,5 +236,24 @@ public class CommonElementUtilities {
 		}
 	}
 
+	public void waitForFrame(int timeOut, String idOrName) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(idOrName));
+	}
+
+	public void waitForFrame(int timeOut, WebElement frameElement) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameElement));
+	}
+
+	public void waitForFrame(int timeOut, By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator));
+	}
+
+	public void waitForFrame(int timeOut, int index) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(index));
+	}
 
 }
