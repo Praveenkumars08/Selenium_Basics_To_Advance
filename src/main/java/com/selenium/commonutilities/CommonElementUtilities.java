@@ -256,4 +256,9 @@ public class CommonElementUtilities {
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(index));
 	}
 
+	public List<WebElement> myWaitForElements(By locator, int timeOut) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+	}
+
 }
