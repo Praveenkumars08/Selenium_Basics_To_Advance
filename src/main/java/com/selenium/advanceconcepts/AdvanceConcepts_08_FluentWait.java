@@ -19,6 +19,8 @@ public class AdvanceConcepts_08_FluentWait {
 		 * NOTE : There are only 2 types of wait in Selenium
 		 * 1. Implicit wait and 2. Explicit wait
 		 * WebDriverWait(class) extends --> FluentWait(class) implements --> Wait (interface) 
+		 * There is no such difference between WebDriverWait and FluentWait, syntax wise only
+		 * there is a difference. WebDriverWait extends all the methods from the FluentWait class.
 		 */
 
 		WebDriverManager.chromedriver().setup();
