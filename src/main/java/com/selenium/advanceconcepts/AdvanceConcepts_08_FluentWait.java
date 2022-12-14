@@ -15,6 +15,12 @@ public class AdvanceConcepts_08_FluentWait {
 
 	public static void main(String[] args) {
 
+		/**
+		 * NOTE : There are only 2 types of wait in Selenium
+		 * 1. Implicit wait and 2. Explicit wait
+		 * WebDriverWait(class) extends --> FluentWait(class) implements --> Wait (interface) 
+		 */
+
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
